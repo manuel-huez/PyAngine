@@ -5,8 +5,8 @@ from .engine import Engine
 
 class Scene:
 	def __init__(self):
-		self._soundManager    = SoundManager()
-		self._objects         = {}
+		self._soundManager = SoundManager()
+		self._objects      = {}
 
 	def addObject(self, key, obj):
 		if(key in self._objects):

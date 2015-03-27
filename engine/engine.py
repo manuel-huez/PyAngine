@@ -11,12 +11,13 @@ class Engine:
 	_frames          = None
 	_backgroundcolor = None
 
-	_scenemanager = None
-	_clock        = None
+	_scenemanager     = None
+	_gamestatemanager = None
+	_clock            = None
 
 	@staticmethod
 	def init(gameName, screenSize, fontFamily, fontSize, frames, backgroundColor,
-			sceneManager):
+			sceneManager, gameStateManager):
 		pygame.init()
 		pygame.display.set_caption(gameName)
 		screen    = pygame.display.set_mode(screenSize)
@@ -28,8 +29,9 @@ class Engine:
 		Engine._frames          = frames
 		Engine._backgroundcolor = backgroundColor
 
-		Engine._scenemanager = sceneManager
-		Engine._clock        = Engine.PyGame.time.Clock()
+		Engine._scenemanager     = sceneManager
+		Engine._gamestatemanager = gameStateManager
+		Engine._clock            = Engine.PyGame.time.Clock()
 
 	@classproperty
 	def PyGame(cls):
@@ -54,6 +56,10 @@ class Engine:
 	@classproperty
 	def SceneManager(cls):
 		return cls._scenemanager
+
+	@classproperty
+	def GameStateManager(cls):
+		return cls._gamestatemanager
 
 	@classproperty
 	def Clock(cls):
